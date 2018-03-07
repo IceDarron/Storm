@@ -15,3 +15,8 @@ demo为无任何逻辑的拓扑示例。
 wordcount为单词切分统计拓扑。
 
 
+### 参考文献
+https://github.com/IceDarron/Note/blob/master/about_storm.md
+
+
+
