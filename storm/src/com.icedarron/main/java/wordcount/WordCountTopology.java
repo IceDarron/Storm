@@ -11,9 +11,9 @@ public class WordCountTopology {
     public static void main(String[] args) throws Exception {
 
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("spout", new SentenceSpout(), 1);
-        builder.setBolt("split", new SplitSentenceBolt(), 2).shuffleGrouping("spout");
-        builder.setBolt("count", new WordCountBolt(), 2).fieldsGrouping("split", new Fields("word"));
+        builder.setSpout("spout", new SentenceSpout());
+        builder.setBolt("split", new SplitSentenceBolt()).shuffleGrouping("spout");
+        builder.setBolt("count", new WordCountBolt(), 1).fieldsGrouping("split", new Fields("word"));
 
         Config conf = new Config();
         conf.setDebug(false);
