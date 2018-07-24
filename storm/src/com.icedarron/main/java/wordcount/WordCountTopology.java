@@ -5,6 +5,7 @@ import org.apache.storm.LocalCluster;
 import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
+import org.apache.storm.utils.Utils;
 
 public class WordCountTopology {
 
@@ -26,7 +27,9 @@ public class WordCountTopology {
             // 本地模式
             LocalCluster cluster = new LocalCluster();
             cluster.submitTopology("word-count", conf, builder.createTopology());
-            Thread.sleep(10000);
+            System.out.print("开启Topology");
+            Utils.sleep(10000);
+            cluster.killTopology("word-count");
             cluster.shutdown();
         }
     }
