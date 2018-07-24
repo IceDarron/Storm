@@ -28,7 +28,7 @@ public class WordCountTopology {
             LocalCluster cluster = new LocalCluster();
             cluster.submitTopology("word-count", conf, builder.createTopology());
             System.out.print("开启Topology");
-            Utils.sleep(10000);
+            Utils.sleep(60000); // 跑的时间不够就关闭拓扑会造成单机拓扑运行不出结果
             cluster.killTopology("word-count");
             cluster.shutdown();
         }
