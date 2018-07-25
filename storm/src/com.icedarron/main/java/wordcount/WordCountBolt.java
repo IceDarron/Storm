@@ -1,13 +1,15 @@
 package wordcount;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseBasicBolt;
 import org.apache.storm.tuple.Tuple;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WordCountBolt extends BaseBasicBolt {
 
@@ -22,8 +24,15 @@ public class WordCountBolt extends BaseBasicBolt {
     @Override
     public void cleanup() {
         //拓扑结束执行
-        for (String key : counts.keySet()) {
-            System.out.println(key + " : " + this.counts.get(key));
+        try {
+            FileWriter writer = new FileWriter("./storm/src/com.icedarron/main/java/result.txt");
+            for (String key : counts.keySet()) {
+                writer.write(key + " : " + this.counts.get(key));
+                writer.write("\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

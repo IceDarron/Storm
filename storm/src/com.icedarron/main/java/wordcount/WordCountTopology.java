@@ -16,8 +16,15 @@ public class WordCountTopology {
         builder.setBolt("split", new SplitSentenceBolt()).shuffleGrouping("spout");
         builder.setBolt("count", new WordCountBolt(), 1).fieldsGrouping("split", new Fields("word"));
 
+//        TopologyBuilder builder = new TopologyBuilder();
+//        builder.setSpout("spout", new SentenceSpout(),2);
+//        builder.setBolt("split", new SplitSentenceBolt(),2).setNumTasks(4).shuffleGrouping("spout");
+//        builder.setBolt("count", new WordCountBolt(), 4).fieldsGrouping("split", new Fields("word"));
+
         Config conf = new Config();
         conf.setDebug(false);
+
+//        conf.setNumWorkers(2);
 
         if (args != null && args.length > 0) {
             // 集群模式
