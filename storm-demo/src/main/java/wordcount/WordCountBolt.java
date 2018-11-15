@@ -25,7 +25,7 @@ public class WordCountBolt extends BaseBasicBolt {
     public void cleanup() {
         //拓扑结束执行
         try {
-            FileWriter writer = new FileWriter("./storm/src/com.icedarron/main/java/result.txt");
+            FileWriter writer = new FileWriter("E:\\IDEA\\workspace\\StormRoot\\storm-demo\\src\\main\\java\\result.txt");
             for (String key : counts.keySet()) {
                 writer.write(key + " : " + this.counts.get(key));
                 writer.write("\n");
