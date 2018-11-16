@@ -7,6 +7,10 @@ import org.apache.storm.generated.AlreadyAliveException;
 import org.apache.storm.generated.AuthorizationException;
 import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.topology.TopologyBuilder;
+import org.apache.storm.tuple.Fields;
+import wordcount_kafka.bolt.SplitSentenceBolt;
+import wordcount_kafka.bolt.WordCountBolt;
+import wordcount_kafka.spout.SpoutWordCount;
 
 public class Topology
 {
@@ -16,6 +20,11 @@ public class Topology
      */
     public static void main(String[] args) throws InvalidTopologyException, AuthorizationException, AlreadyAliveException {
         TopologyBuilder builder = new TopologyBuilder();
+
+        builder.setSpout("SpoutWordCount", new SpoutWordCount());
+
+        builder.setBolt("split", new SplitSentenceBolt()).shuffleGrouping("SpoutWordCount");
+        builder.setBolt("count", new WordCountBolt(), 1).fieldsGrouping("split", new Fields("word"));
 
 //        builder.setSpout("KafkaSpout", new SpoutFromKafka());
 //        builder.setBolt("fieldsExecutor", new FieldsExecutor(), 1).shuffleGrouping("KafkaSpout");

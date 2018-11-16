@@ -28,7 +28,7 @@ public class SpoutWordCount extends KafkaSpout {
             zkServices.add(str.split(":")[0]);
         }
 
-        spoutConf = new SpoutConfig(hosts, topic, zkRoot, "spoutKafka");
+        spoutConf = new SpoutConfig(hosts, topic, zkRoot, "SpoutWordCount");
         spoutConf.zkServers = zkServices;
         spoutConf.zkPort = zkPort;
         spoutConf.scheme = new SchemeAsMultiScheme(new SchemeWordCount());
