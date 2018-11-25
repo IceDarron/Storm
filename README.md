@@ -10,9 +10,11 @@ project本身为空的maven模块，下面包含多个子模块：
 ### storm
 实例：
 
-wordcount_simple:一个本地运行的demo。
+wordcount_simple:本地运行的demo。
 
-wordcount_kafka:一个生产者为kafka的demo。
+wordcount_kafka:生产者为kafka的demo。
+
+wordcount_demo:本地运行demo。
 
 
 ### storm的八种Grouping策略
