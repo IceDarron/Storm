@@ -1,4 +1,5 @@
-package demo;
+package wordcount_demo;
+
 
 import org.apache.storm.spout.Scheme;
 import org.apache.storm.tuple.Fields;
@@ -21,14 +22,13 @@ public class CommonScheme implements Scheme {
         return values;
     }
 
-    @Override
     public List<Object> deserialize(ByteBuffer byteBuffer) {
         return deserialize(byteBuffer);
     }
 
     @Override
     public Fields getOutputFields() {
-        return new Fields("BUSS_DATA");
+        return new Fields("key","message");
     }
 
 

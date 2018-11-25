@@ -1,0 +1,4 @@
+worker-id: 1a6e131a-a4d5-424c-9dad-f73f2d17f183
+logs.users: []
+logs.groups: []
+topology.submitter.user: wsc

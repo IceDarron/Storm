@@ -3,16 +3,16 @@ Storm-Kafka
 
 project本身为空的maven模块，下面包含多个子模块：
 
-+ storm模块
++ storm-demo模块
 
-+ web-app模块
++ storm-app模块
 
 ### storm
-包含两个实例：
+实例：
 
-demo为无任何逻辑的拓扑示例。
+wordcount_simple:一个本地运行的demo。
 
-wordcount为单词切分统计拓扑。
+wordcount_kafka:一个生产者为kafka的demo。
 
 
 ### storm的八种Grouping策略

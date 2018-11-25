@@ -1,4 +1,4 @@
-package wordcount;
+package wordcount_demo;
 
 
 import org.apache.storm.Config;
