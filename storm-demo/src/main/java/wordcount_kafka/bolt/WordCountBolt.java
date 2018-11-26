@@ -35,7 +35,7 @@ public class WordCountBolt implements IBasicBolt {
         //拓扑结束执行
         FileWriter writer = null;
         try {
-            writer = new FileWriter("E:\\IDEA\\workspace\\StormRoot\\storm-demo\\src\\main\\java\\result.txt");
+            writer = new FileWriter("../../result.txt");
             for (String key : counts.keySet()) {
                 writer.write(key + " : " + this.counts.get(key));
                 writer.write("\n");
