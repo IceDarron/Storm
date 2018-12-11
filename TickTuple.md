@@ -54,3 +54,5 @@ http://mdsa.51cto.com/art/201507/486973_1.htm
 http://www.michael-noll.com/blog/2013/01/18/implementing-real-time-trending-topics-in-storm/
 
 http://blog.jobbole.com/88475/
+
+https://kitmenke.com/blog/2014/08/04/tick-tuples-within-storm/
