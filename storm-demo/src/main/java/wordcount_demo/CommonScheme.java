@@ -26,10 +26,7 @@ public class CommonScheme implements Scheme {
         return deserialize(byteBuffer);
     }
 
-    @Override
     public Fields getOutputFields() {
         return new Fields("key","message");
     }
-
-
 }

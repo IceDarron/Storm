@@ -21,7 +21,6 @@ public class SentenceSpout extends BaseRichSpout {
             "and is a lot of fun to use"};
     private int index = 0;
 
-    @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         //定义输出字段描述
         declarer.declare(new Fields("sentence"));
