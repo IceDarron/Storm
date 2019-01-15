@@ -9,6 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>storm-demo</artifactId>
+    <packaging>war</packaging>
+
     <name>storm_demo</name>
     <!-- FIXME change it to the project's website -->
     <url>http://maven.apache.org</url>
@@ -19,7 +22,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <artifactId>storm-demo</artifactId>
     <build>
         <plugins>
             <plugin>

@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/storm-app" />
+    <file type="web" url="file://$PROJECT_DIR$/storm-demo" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
