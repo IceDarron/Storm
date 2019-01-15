@@ -1,0 +1,11 @@
+{"BOLT_CODE":"TickBolt"}
+
+{"BOLT_CODE":"SlidingWindowByTimeBolt","INDEX":"0"}
+{"BOLT_CODE":"SlidingWindowByTimeBolt","INDEX":"5"}
+{"BOLT_CODE":"SlidingWindowByTimeBolt","INDEX":"6"}
+
+{"BOLT_CODE":"SlidingWindowByCountBolt","INDEX":"10"}
+{"BOLT_CODE":"SlidingWindowByCountBolt","INDEX":"15"}
+
+{"SecondSubOneBolt1":"1","SecondSubOneBolt2":"2"}
+
