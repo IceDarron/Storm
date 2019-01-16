@@ -7,7 +7,9 @@ import org.apache.storm.topology.IRichBolt;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
+import org.apache.storm.tuple.Values;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.apache.storm.utils.Utils.tuple;
@@ -24,10 +26,13 @@ public class SecondSubOneBolt implements IRichBolt {
 
     String SecondSubOneBolt2;
 
+    List<Object> values;
+
 
     @Override
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
         this.outputCollector = outputCollector;
+        this.values = new Values();
     }
 
     @Override
@@ -43,8 +48,15 @@ public class SecondSubOneBolt implements IRichBolt {
             e.printStackTrace();
             return;
         }
+
         outputCollector.emit(tuple(SecondSubOneBolt1, SecondSubOneBolt2));
         outputCollector.ack(tuple);
+
+//        values.add(SecondSubOneBolt1);
+//        values.add(SecondSubOneBolt2);
+//        outputCollector.emit(tuple(SecondSubOneBolt1, SecondSubOneBolt2));
+//        outputCollector.ack(tuple);
+//        values = new Values();
     }
 
     @Override
