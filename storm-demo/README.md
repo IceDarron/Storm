@@ -37,6 +37,7 @@ storm相关概念及延伸
 生命周期：
 + https://blog.csdn.net/u010003835/article/details/52168829
 + https://blog.csdn.net/sanamaz/article/details/51153987
++ https://blog.csdn.net/migowei/article/details/45500721
 
 declareOutputFields：
 + https://blog.csdn.net/qq_23660243/article/details/53929525
