@@ -53,6 +53,10 @@ IBasicBolt与IRichBolt的区别：
 每一个bolt的并行节点只能统计自己一个窗口接收到数据的总和，无法统计出一个窗口内全局数据的总和。
 + https://www.cnblogs.com/intsmaze/p/6481588.html
 
+Metrics机制:
+https://blog.csdn.net/opensure/article/details/50824446
+
+
 其他参考资料
 ===
 kafka常用命令:
