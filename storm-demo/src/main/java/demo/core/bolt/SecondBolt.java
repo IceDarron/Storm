@@ -36,7 +36,7 @@ public class SecondBolt implements IBasicBolt {
             json = JSONObject.parseObject(msg);
             boltCode = json.getString("BOLT_CODE");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("SecondBolt data is not a basic json." + msg);
             return;
         }
 

@@ -40,7 +40,8 @@ public class Topology {
         builder.setBolt("SlidingWindowByCountBolt", new SlidingWindowByCountBolt()
                 .withWindow(new Count(6), new Count(2)), 1)
                 .fieldsGrouping("SecondBolt", "SlidingWindowByCountBolt", new Fields("SlidingWindowByCountBolt"));
-        //
+        // Metric
+        builder.setBolt("MetricBolt", new MetricBolt(), 2).shuffleGrouping("FirstBolt");
 
 
         Config config = new Config();
