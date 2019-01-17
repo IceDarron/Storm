@@ -2,15 +2,21 @@ package demo.manager.distributedLock;
 
 import demo.manager.redis.JedisPoolManage;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 
 import java.util.Collections;
 
 /**
  * 基于redis的分布式锁
  *
+ * 应该只适用于单节点，集群中某个节点挂了无法处理。
+ *
+ * 对于获取锁后没有处理完就过期导致释放失败，甚至是其他客户端获取到锁，也没有处理。
+ *
+ * 不可重入，但是可以通过事务及唯一标示请求标识进行处理。
+ *
  * @author IceDarron
  * @since 20190117
- *
  */
 public class LockRedisImpl implements IDistributedLock {
 
@@ -28,10 +34,6 @@ public class LockRedisImpl implements IDistributedLock {
         Jedis jedis = null;
         try {
             jedis = JedisPoolManage.getJedis();
-            // 是否已持有锁
-            // TODO
-
-
             // 尝试获取锁
             String result;
             Long end = System.currentTimeMillis() + acquireTime;
