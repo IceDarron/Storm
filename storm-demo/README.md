@@ -69,6 +69,9 @@ Metrics机制:
 Ack机制：
 + https://www.cnblogs.com/intsmaze/p/5918087.html
 
+fieldsGrouping的分配策略：
++ https://blog.csdn.net/smile_to_life/article/details/56669173
+
 
 其他参考资料
 ===
