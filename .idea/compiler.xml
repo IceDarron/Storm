@@ -10,6 +10,7 @@
         <module name="storm-demo" />
         <module name="stormapp" />
         <module name="stormdemo" />
+        <module name="webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
