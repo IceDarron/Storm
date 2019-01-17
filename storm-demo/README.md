@@ -78,3 +78,6 @@ kafka常用命令:
 kafka 消费者offset记录位置和方式
 + https://blog.csdn.net/u013063153/article/details/78122088
 
+分布式锁
++ https://www.cnblogs.com/linjiqin/p/8003838.html
++ https://blog.csdn.net/xlgen157387/article/details/79036337
