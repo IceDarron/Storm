@@ -72,7 +72,7 @@ Ack机制：
 fieldsGrouping的分配策略：
 + https://blog.csdn.net/smile_to_life/article/details/56669173
 
-Executer(并行度，槽，执行器)为什么可以分配多个Task：
+Executer(并行度，槽，执行器)为什么可以分配多个Task及rebalance命令：
 + 个人任务这个是因为storm可以提供动态调整executer,而task的数量一旦启动就固定不能变了。故2个executer对应8个taks，后期可以动态调整executer到8个。 
 
 
