@@ -11,6 +11,7 @@
     <modules>
         <module>storm-demo</module>
         <module>storm-app</module>
+        <module>producer</module>
     </modules>
 
 
