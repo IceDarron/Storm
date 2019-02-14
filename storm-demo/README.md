@@ -28,6 +28,20 @@
 ./kafka-console-consumer.sh --zookeeper 10.4.59.209:2181 --from-beginning --topic STORM_DEMO
 ```
 
+### storm相关命令
+```text
+// 后台启动storm
+
+启动nimbus：nohup storm nimbus &
+
+启动ui：nohup storm ui &
+
+启动supervisor： nohup storm supervisor &
+
+// 停止storm
+杀进程
+```
+
 
 storm相关概念及延伸
 ===
