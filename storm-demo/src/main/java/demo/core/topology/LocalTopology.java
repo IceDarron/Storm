@@ -17,7 +17,8 @@ public class LocalTopology {
         TopologyBuilder builder = new TopologyBuilder();
 
         builder.setSpout("LocalSpout", new LocalSpout());
-        builder.setBolt("FirstBolt", new FirstBolt(), 1).shuffleGrouping("LocalSpout");
+
+//        builder.setBolt("FirstBolt", new FirstBolt(), 1).shuffleGrouping("LocalSpout");
 //        builder.setBolt("SecondBolt", new SecondBolt(), 1).shuffleGrouping("FirstBolt");
 //        // 分支-测试IRichBolt及多Fields
 //        builder.setBolt("SecondSubOneBolt", new SecondSubOneBolt(), 1).shuffleGrouping("FirstBolt");
@@ -36,8 +37,11 @@ public class LocalTopology {
 //        // Metric
 //        builder.setBolt("MetricBolt", new MetricBolt(), 2).shuffleGrouping("FirstBolt");
         // fieldsGrouping的分配策略
-        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 3).fieldsGrouping("LocalSpout", new Fields("msg"));
-        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("msg"));
+//        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 3).fieldsGrouping("LocalSpout", new Fields("msg"));
+//        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("msg"));
+        // 当一个bolt的task没有处理完数据的时候，下一个tuple过来是阻塞还是直接处理
+        builder.setBolt("BlockBolt", new BlockBolt(), 1).setNumTasks(1).shuffleGrouping("LocalSpout");
+
 
         Config config = new Config();
         config.setDebug(false);

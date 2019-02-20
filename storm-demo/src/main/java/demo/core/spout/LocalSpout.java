@@ -17,7 +17,8 @@ public class LocalSpout extends BaseRichSpout {
 
     private JSONObject json;
 
-    private String msg = "{\"SecondSubOneBolt1\":\"1\",\"SecondSubOneBolt2\":\"2\"}";
+//    private String msg = "{\"SecondSubOneBolt1\":\"1\",\"SecondSubOneBolt2\":\"2\"}";
+    private String msg = "test-message";
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         //定义输出字段描述
@@ -35,7 +36,7 @@ public class LocalSpout extends BaseRichSpout {
         }
         this.collector.emit(new Values(msg));
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
