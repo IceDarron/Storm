@@ -39,7 +39,7 @@ public class LocalTopology {
         // fieldsGrouping的分配策略
 //        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 3).fieldsGrouping("LocalSpout", new Fields("msg"));
 //        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("msg"));
-        // 当一个bolt的task没有处理完数据的时候，下一个tuple过来是阻塞还是直接处理
+        // 当一个bolt的task没有处理完数据的时候，下一个tuple过来是阻塞还是直接处理    阻塞
         builder.setBolt("BlockBolt", new BlockBolt(), 1).setNumTasks(1).shuffleGrouping("LocalSpout");
 
 

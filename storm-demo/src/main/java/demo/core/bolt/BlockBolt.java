@@ -28,7 +28,7 @@ public class BlockBolt implements IBasicBolt {
         System.out.println(input.getValue(0).toString());
 
         try {
-            Thread.sleep(10);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
