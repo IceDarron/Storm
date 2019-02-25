@@ -16,7 +16,11 @@ public class FieldStrategyResultBolt implements IBasicBolt {
 
     @Override
     public void execute(Tuple tuple, BasicOutputCollector basicOutputCollector) {
-        System.out.println("tuple0->" + tuple.getString(0) + "  " + Thread.currentThread().getName());
+        // 可以很好地指定消费的数据
+        System.out.println("tuple_field->" + tuple.getStringByField("field") + "  " + Thread.currentThread().getName());
+        System.out.println("tuple_other->" + tuple.getStringByField("other") + "  " + Thread.currentThread().getName());
+        // 上一个组件发射两条数据，虽然在topology指定了，但是在tuple都传递过来了
+//        System.out.println("tuple0->" + tuple.getString(0) + "  " + Thread.currentThread().getName());
         // test result
         // storm 和jstorm中fieldsGrouping分配策略的实质是根据指定的字段的值，进行hash取模，根据模进行分配。相同的值会被同一个bolt处理。
 //        tuple0->1  Thread-25-FieldStrategyResultBolt-executor[6 6]

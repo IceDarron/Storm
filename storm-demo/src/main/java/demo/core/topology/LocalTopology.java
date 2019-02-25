@@ -37,10 +37,11 @@ public class LocalTopology {
 //        // Metric
 //        builder.setBolt("MetricBolt", new MetricBolt(), 2).shuffleGrouping("FirstBolt");
         // fieldsGrouping的分配策略
-//        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 3).fieldsGrouping("LocalSpout", new Fields("msg"));
-//        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("msg"));
+        // 按照value的哈希值进行分配到不同的task中 这个value取哪一个由fieldsGrouping("FieldStrategyBolt", new Fields("field"));中的Fields决定
+        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 1).shuffleGrouping("LocalSpout");
+        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("field", "other"));
         // 当一个bolt的task没有处理完数据的时候，下一个tuple过来是阻塞还是直接处理    阻塞
-        builder.setBolt("BlockBolt", new BlockBolt(), 1).setNumTasks(1).shuffleGrouping("LocalSpout");
+//        builder.setBolt("BlockBolt", new BlockBolt(), 1).setNumTasks(1).shuffleGrouping("LocalSpout");
 
 
         Config config = new Config();

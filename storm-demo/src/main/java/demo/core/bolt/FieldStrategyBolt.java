@@ -28,7 +28,7 @@ public class FieldStrategyBolt implements IBasicBolt {
             Utils.sleep(10000);
             count = 0;
         }
-        basicOutputCollector.emit(new Values(array[count]));
+        basicOutputCollector.emit(new Values(array[count], "a"));
         count++;
     }
 
@@ -39,7 +39,7 @@ public class FieldStrategyBolt implements IBasicBolt {
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
-        outputFieldsDeclarer.declare(new Fields("msg"));
+        outputFieldsDeclarer.declare(new Fields("field", "other"));
     }
 
     @Override
