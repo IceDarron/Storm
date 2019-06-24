@@ -13,6 +13,7 @@ import org.apache.storm.topology.base.BaseWindowedBolt.Count;
 import org.apache.storm.topology.base.BaseWindowedBolt.Duration;
 import org.apache.storm.tuple.Fields;
 
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -46,6 +47,9 @@ public class Topology {
 
         Config config = new Config();
         config.setDebug(false);
+        config.registerSerialization(LinkedList.class);
+        Config.setFallBackOnJavaSerialization(config, false); // 禁止使用java序列化
+
 
         if (args != null && args.length > 0) {
             config.setNumWorkers(8);

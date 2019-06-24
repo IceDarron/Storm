@@ -18,8 +18,8 @@ public class LocalTopology {
 
         builder.setSpout("LocalSpout", new LocalSpout());
 
-//        builder.setBolt("FirstBolt", new FirstBolt(), 1).shuffleGrouping("LocalSpout");
-//        builder.setBolt("SecondBolt", new SecondBolt(), 1).shuffleGrouping("FirstBolt");
+        builder.setBolt("FirstBolt", new FirstBolt(), 1).shuffleGrouping("LocalSpout");
+        builder.setBolt("SecondBolt", new SecondBolt(), 1).shuffleGrouping("FirstBolt");
 //        // 分支-测试IRichBolt及多Fields
 //        builder.setBolt("SecondSubOneBolt", new SecondSubOneBolt(), 1).shuffleGrouping("FirstBolt");
 //        builder.setBolt("ThirdBolt", new ThirdBolt(), 1).shuffleGrouping("SecondSubOneBolt");
@@ -27,9 +27,9 @@ public class LocalTopology {
 //        builder.setBolt("TickBolt", new TickBolt(), 1)
 //                .fieldsGrouping("SecondBolt", "TickBolt", new Fields("TickBolt"));
 //        // 滑窗窗口长度：tuple数, 滑动间隔: tuple数 每2秒统计最近6秒的数据，所以一条数据可以被重复统计6/2=3次。
-//        builder.setBolt("SlidingWindowByTimeBolt", new SlidingWindowByTimeBolt()
-//                .withWindow(new Duration(6, TimeUnit.SECONDS), new Duration(2, TimeUnit.SECONDS)), 1)
-//                .fieldsGrouping("SecondBolt", "SlidingWindowByTimeBolt", new Fields("SlidingWindowByTimeBolt"));
+        builder.setBolt("SlidingWindowByTimeBolt", new SlidingWindowByTimeBolt()
+                .withWindow(new Duration(6, TimeUnit.SECONDS), new Duration(2, TimeUnit.SECONDS)), 1)
+                .fieldsGrouping("SecondBolt", "SlidingWindowByTimeBolt", new Fields("SlidingWindowByTimeBolt"));
 //        // 滑窗窗口长度：tuple数, 滑动间隔: tuple数 每收到2条数据统计当前6条数据的总和。所以一条数据可以被重复统计6/2=3次。
 //        builder.setBolt("SlidingWindowByCountBolt", new SlidingWindowByCountBolt()
 //                .withWindow(new Count(6), new Count(2)), 1)
@@ -38,8 +38,8 @@ public class LocalTopology {
 //        builder.setBolt("MetricBolt", new MetricBolt(), 2).shuffleGrouping("FirstBolt");
         // fieldsGrouping的分配策略
         // 按照value的哈希值进行分配到不同的task中 这个value取哪一个由fieldsGrouping("FieldStrategyBolt", new Fields("field"));中的Fields决定
-        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 1).shuffleGrouping("LocalSpout");
-        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("field", "other"));
+//        builder.setBolt("FieldStrategyBolt", new FieldStrategyBolt(), 1).shuffleGrouping("LocalSpout");
+//        builder.setBolt("FieldStrategyResultBolt", new FieldStrategyResultBolt(), 3).fieldsGrouping("FieldStrategyBolt", new Fields("field", "other"));
         // 当一个bolt的task没有处理完数据的时候，下一个tuple过来是阻塞还是直接处理    阻塞
 //        builder.setBolt("BlockBolt", new BlockBolt(), 1).setNumTasks(1).shuffleGrouping("LocalSpout");
 

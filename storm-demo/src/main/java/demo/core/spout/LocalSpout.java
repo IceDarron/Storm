@@ -17,8 +17,9 @@ public class LocalSpout extends BaseRichSpout {
 
     private JSONObject json;
 
-//    private String msg = "{\"SecondSubOneBolt1\":\"1\",\"SecondSubOneBolt2\":\"2\"}";
-    private String msg = "test-message";
+    //    private String msg = "{\"SecondSubOneBolt1\":\"1\",\"SecondSubOneBolt2\":\"2\"}";
+//    private String msg = "test-message";
+    private String msg = "{\"BOLT_CODE\":\"SlidingWindowByTimeBolt\",\"INDEX\":\"1\"}";
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         //定义输出字段描述
